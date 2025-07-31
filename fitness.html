@@ -24,7 +24,7 @@
     }
     .article-img {
   width: 100%;
-height:250px;
+height:auto;
   max-width: 800px;
   border-radius: 8px;
   margin: 20px auto;
@@ -65,35 +65,34 @@ font-size: 55px;
   color: #333;
   line-height: 1.8;
    }
-    ul li::before {
+    ul:not(.pin) li {
+  display: flex;
+  align-items: center;     /* يوسّط النقطة مع النص */
+  margin-bottom: 8px;
+}
+
+ul:not(.pin) li::before {
   content: "⚫";
-  position: absolute;
-  right: 0;
   color: #007BFF;
-  font-size: 0.6em;
-  margin-left:6px;
+  font-size: 0.7em;
+  margin-left: 6px;
 }
- ul.pin li::before {
-  content: "📌";
-  margin-left: 8px;
-  font-size: 1em;
-   color: #44444;
- }
-    ul.pin {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 10px 0;
-}
-ul.pin li::before {
-  content: "📌";
-  margin-left: 8px;
-  font-size: 1em;
-  color: #44444;
-}
+
+/* القوائم بالدبابيس */
 ul.pin li {
-  font-size: 3em;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 1.2em;
   font-weight: bold;
   color: #007BFF;
+}
+
+ul.pin li::before {
+  content: "📌";
+  font-size: 1.6em;
+  margin-left: 6px;
+  color: #444;
 }
     ul.pin li strong {
   color: #444444;
