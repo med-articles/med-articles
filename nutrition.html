@@ -72,21 +72,24 @@ ul li {
 
 ul:not(.pin) li {
   display: flex;
-  align-items: center;     /* يوسّط النقطة مع النص */
+  align-items: flex-start;     /* يوسّط النقطة مع النص */
   margin-bottom: 8px;
+gap:5px;
+list-style:none;
 }
 
 ul:not(.pin) li::before {
   content: "⚫";
   color: #007BFF;
-  font-size: 0.7em;
+  font-size: 0.6em;
   margin-left: 6px;
+margin-top:0.25em;
 }
 
 /* القوائم بالدبابيس */
 ul.pin li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 8px;
   font-size: 1.2em;
   font-weight: bold;
@@ -98,6 +101,7 @@ ul.pin li::before {
   font-size: 2em;
   margin-left: 6px;
   color: #444;
+margin-top:0.25em;
 }
     ul.pin li strong {
   color: #444444;
