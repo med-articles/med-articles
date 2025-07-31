@@ -72,16 +72,20 @@ ul li {
 ul:not(pin) li::before {
   content: "⚫";
   position: absolute;
+display: inline-block;
   right: 0;
   color: #007BFF;
   font-size: 0.5em;
   margin-left:6px;
+vertical-align: middle;
 }
  ul.pin li::before {
   content: "📌";
   margin-left: 8px;
+display: inline-block;
   font-size: 1.5em;
    color: #44444;
+vertical-align: middle;
  }
   ul.pin {
   list-style: none;
