@@ -69,39 +69,36 @@ ul li {
   line-height: 1.8;
 }
 
-ul:not(pin) li::before {
-  content: "⚫";
-display: inline-block;
-  right: 0;
+/* القوائم العادية */
+ul:not(.pin) li {
+  display: flex;
+  align-items: center;     /* يوسّط النقطة مع النص */
+  margin-bottom: 8px;
+}
+
+ul:not(.pin) li::before {
+  content: "●";
   color: #007BFF;
-  font-size: 0.5em;
-  margin-left:6px;
-vertical-align: middle;
+  font-size: 1em;
+  margin-left: 6px;
 }
- ul.pin li::before {
-  content: "📌";
-  margin-left: 8px;
-display: inline-block;
-  font-size: 1.2em;
-   color: #44444;
-vertical-align: middle;
- }
-  ul.pin {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 10px 0;
-}
-ul.pin li::before {
-  content: "📌";
-  margin-left: 8px;
-  font-size: 1.2em;
-  color: #44444;
-}
+
+/* القوائم بالدبابيس */
 ul.pin li {
-  font-size: 3em;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 1.2em;
   font-weight: bold;
   color: #007BFF;
-} 
+}
+
+ul.pin li::before {
+  content: "📌";
+  font-size: 1.2em;
+  margin-left: 6px;
+  color: #444;
+}
     ul.pin li strong {
   color: #444444;
   font-size: 50px;
