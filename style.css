@@ -1,169 +1,200 @@
-/* إعادة ضبط الأساسيات */
+/* إعدادات أساسية */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
 }
 
-/* الخلفية العامة */
 body {
-    background: #f4f7fb;
+    background: linear-gradient(135deg, #f0f9ff, #e0f7fa);
     color: #333;
-    text-align: center;
-    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background 0.7s, color 0.7s;
 }
 
-/* الهيدر (شريط التنقل) */
+/* خلفية متحركة */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 20%, rgba(0, 200, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 200, 0.15) 0%, transparent 50%);
+    z-index: -1;
+    animation: floatBackground 12s ease-in-out infinite alternate;
+}
+
+@keyframes floatBackground {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+/* شريط التنقل */
 header {
-    background: white;
-    padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: relative;
-    z-index: 10;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+    transition: background 0.3s;
 }
 
-header h1 {
-    font-size: 26px;
-    color: #3498db;
-    margin-bottom: 10px;
-    font-weight: bold;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
 }
 
-/* قائمة التنقل */
 .nav-list ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.nav-list ul li a {
+.nav-list a {
     text-decoration: none;
-    color: #444;
-    font-size: 15px;
+    color: #333;
     font-weight: 600;
-    transition: color 0.3s ease, transform 0.2s ease;
+    transition: color 0.3s;
 }
 
-.nav-list ul li a:hover {
-    color: #3498db;
-    transform: scale(1.1);
+.nav-list a:hover {
+    color: #00bcd4;
 }
 
-/* قسم البطل (Hero) */
+/* زر الوضع الليلي */
+#theme-btn {
+    background: #00bcd4;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.4s;
+}
+
+#theme-btn:hover {
+    transform: rotate(180deg);
+}
+
+/* قسم البطل */
 .hero {
-    max-width: 800px;
-    margin: 50px auto;
-    background: linear-gradient(135deg, #ffffff, #f9f9f9);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    padding: 150px 20px 80px;
 }
 
 .hero h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #333;
+    font-size: 2.4rem;
+    margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
+    opacity: 0.8;
 }
 
-.hero button {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.hero button:hover {
-    background: #2c80b4;
-}
-
-/* الأقسام (المقالات) */
+/* المقالات */
 .articles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    padding: 50px 20px;
 }
 
 .article {
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
-    padding: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 20px;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.article.visible {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .article:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.article img {
+.section-image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
-.article h3 {
-    font-size: 18px;
-    color: #3498db;
-    margin-bottom: 8px;
-}
-
-.article p {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 12px;
-}
-
-.article a {
-    text-decoration: none;
+.read-more {
     display: inline-block;
-    background: #3498db;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #00bcd4;
     color: white;
-    padding: 6px 12px;
-    border-radius: 5px;
-    font-size: 13px;
-    transition: background 0.3s ease;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
 }
 
-.article a:hover {
-    background: #2c80b4;
+.read-more:hover {
+    background: #008c9e;
 }
 
-/* زر الرجوع لأعلى */
-#backToTop {
+/* زر الرجوع للأعلى */
+#back-to-top {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    background: #3498db;
+    background: #00bcd4;
     color: white;
     border: none;
+    padding: 12px;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
     cursor: pointer;
+    font-size: 1.2rem;
     display: none;
-    transition: background 0.3s ease;
+    transition: transform 0.3s;
 }
 
-#backToTop:hover {
-    background: #2c80b4;
+#back-to-top:hover {
+    transform: scale(1.2);
+}
+
+/* التذييل */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+/* الوضع الليلي */
+.dark-mode {
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    color: #f5f5f5;
+}
+
+.dark-mode .article {
+    background: #2b2b2b;
+    color: white;
+}
+
+.dark-mode header {
+    background: rgba(34, 34, 34, 0.9);
+}
+
+.dark-mode .read-more {
+    background: #008c9e;
 }
