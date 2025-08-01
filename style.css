@@ -1,150 +1,127 @@
+/* الخط الأساسي */
 body {
-    font-family: Arial, sans-serif;
-    background-color: 2A9D8F;
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(135deg, #f9fbfd, #eaf4ff);
     text-align: center;
     margin: 0;
     padding: 0;
+    line-height: 1.8;
+    color: #333;
 }
 
+/* الهيدر */
 header {
-    background-color: #ffffff;
-    color: black;
-    padding: 20px;
+    background: linear-gradient(90deg, #2c3e50, #1abc9c);
+    color: white;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: background 0.3s, box-shadow 0.3s;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-/* تنسيق قائمة الروابط */
+
+header.scrolled {
+    background: linear-gradient(90deg, #1a252f, #16a085);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* قائمة الروابط */
 .nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-  display: flex;
-  flex-direction: column; /* يخليهم تحت بعضهم */
-  align-items: center; /* يخليهم في الوسط */
-  gap: 15px; /* مسافة بين الروابط */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
 }
 
 .nav-list li a {
-  text-decoration: none;
-  font-size: 18px;
-  color: #333;
-  font-weight: bold;
-  transition: color 0.3s;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.2s;
 }
 
 .nav-list li a:hover {
-  color: #007B7B; /* لون جميل عند المرور */
+    color: #f1c40f;
+    transform: scale(1.1);
 }
 
-
+/* المقدمة */
 .intro {
-    margin: 20px;
+    margin: 120px 20px 40px;
+    font-size: 18px;
+    color: #333;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-
-  button {
-    padding: 10px 20px;
+/* الأزرار */
+button {
+    padding: 12px 28px;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-  }
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 15px;
+}
 
-  button:hover {
+button:hover {
     background-color: #218838;
-  }
+    transform: translateY(-3px);
+}
 
+/* المقالات */
 .articles {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 25px;
+    padding: 30px 10px;
 }
 
 .article {
     background: white;
     padding: 15px;
-    margin: 15px;
-    width: 250px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-img {
-  width: 100%;
-  max-width: 300px; /* عدلي الحجم حسب واش تحبي */
-    height:300px;
-  border-radius: 10px; /* اختيارية، تعطي زوايا دائرية للصورة */
-  display: block;
-  margin: 10px auto; /* باش تجي في الوسط */
-}
-.article img {
-    width: 100%;
-    border-radius: 8px;
-}
-.featured-img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-.section-image img {
-  width: 100%;
-  max-width: 800px;
-    height:300px;
-  border-radius: 12px;
-  display: block;
-  margin: 20px auto;
+    width: 260px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
 }
 
+.article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.article img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
 
 .article h3 a {
     text-decoration: none;
     color: #2980b9;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .article p {
-    color:#555;
-
-/* تأثير على القائمة عند التمرير */
-header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    transition: 0.3s;
-    z-index: 1000;
-}
-
-header.scrolled {
-    background-color: rgba(44, 62, 80, 0.9);
-}
-
-/* تأثير على المقالات */
-.article {
-    background: white;
-    padding: 15px;
-    margin: 15px;
-    width: 250px;
-    box- {
-    background-color: #2c3e50; /* اللون ثابت */
-    color: white;
-    padding: 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-body {
-    padding-top: 80px; /* حتى لا يغطي الـ header على المحتوى */
-}
-    .dark-mode {
-    background: #222;
-    color: white;
-}
-
-.dark-mode button {
-    background: white;
-    color: black;
+    color: #555;
+    font-size: 15px;
+    margin: 10px 0 0;
 }
