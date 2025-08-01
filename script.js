@@ -36,7 +36,6 @@ const revealOnScroll = () => {
 
 // عند تحميل الصفحة
 window.addEventListener("load", () => {
-    // تهيئة المقالات للتأثير
     articles.forEach(article => {
         article.style.opacity = "0";
         article.style.transform = "translateY(30px)";
@@ -51,21 +50,17 @@ window.addEventListener("scroll", revealOnScroll);
 // زر تغيير المظهر
 themeBtn.addEventListener("click", () => {
     if (!themeToggle) {
-        // ألوان جديدة
-        document.body.style.background = "linear-gradient(to bottom, #f0f8ff, #ffffff)";
+        // تفعيل المظهر الأزرق
+        document.body.style.background = "linear-gradient(to bottom, #e0f7fa, #ffffff)";
         document.querySelector("header").style.background = "#e0f7fa";
-        themeBtn.style.background = "#0288d1";
-
-        // رسالة تأكيد
+        themeBtn.style.background = "#0288d1"; // زر أزرق
         themeBtn.innerText = "🌞 الوضع الفاتح";
         themeToggle = true;
     } else {
-        // العودة للألوان الأصلية
+        // العودة للمظهر الأخضر
         document.body.style.background = "linear-gradient(to bottom, #f0fff4, #ffffff)";
         document.querySelector("header").style.background = "#ffffff";
-        themeBtn.style.background = "#3cb371";
-
-        // رسالة تأكيد
+        themeBtn.style.background = "#3cb371"; // زر أخضر
         themeBtn.innerText = "🌿 تغيير المظهر";
         themeToggle = false;
     }
