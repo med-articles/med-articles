@@ -1,31 +1,43 @@
-// زر الوضع الليلي
-const themeBtn = document.getElementById('theme-btn');
-const body = document.body;
-
-themeBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-});
-
 // زر الرجوع للأعلى
-const backToTop = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 250) {
-        backToTop.style.display = 'block';
+const backToTopBtn = document.getElementById("back-to-top");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.style.display = "block";
     } else {
-        backToTop.style.display = 'none';
+        backToTopBtn.style.display = "none";
     }
 });
-backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 });
 
-// أنيميشن ظهور المقالات عند التمرير
-const articles = document.querySelectorAll('.article');
-window.addEventListener('scroll', () => {
+// تأثير ظهور المقالات عند التمرير
+const articles = document.querySelectorAll(".article");
+
+const revealOnScroll = () => {
+    const triggerPoint = window.innerHeight * 0.85;
+
     articles.forEach(article => {
-        const rect = article.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-            article.classList.add('visible');
+        const articleTop = article.getBoundingClientRect().top;
+        if (articleTop < triggerPoint) {
+            article.style.opacity = "1";
+            article.style.transform = "translateY(0)";
         }
     });
+};
+
+// إعداد التأثير في البداية والتمرير
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", () => {
+    articles.forEach(article => {
+        article.style.opacity = "0";
+        article.style.transform = "translateY(30px)";
+        article.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    });
+    revealOnScroll();
 });
