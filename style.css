@@ -4,197 +4,182 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Cairo', sans-serif;
-    scroll-behavior: smooth;
 }
 
 body {
-    background: linear-gradient(135deg, #f0f9ff, #e0f7fa);
+    background: linear-gradient(to bottom, #f0fff4, #ffffff);
     color: #333;
+    line-height: 1.6;
     overflow-x: hidden;
-    transition: background 0.7s, color 0.7s;
 }
 
-/* خلفية متحركة */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 20% 20%, rgba(0, 200, 255, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 255, 200, 0.15) 0%, transparent 50%);
-    z-index: -1;
-    animation: floatBackground 12s ease-in-out infinite alternate;
-}
-
-@keyframes floatBackground {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(20px, 20px); }
-}
-
+/* ---------------------- */
 /* شريط التنقل */
 header {
-    position: fixed;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: sticky;
     top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     z-index: 1000;
-    transition: background 0.3s;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+}
+
+.navbar h1 {
+    font-size: 1.6rem;
+    color: #2e8b57;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .nav-list ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 .nav-list a {
     text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    transition: color 0.3s;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4a4a4a;
+    transition: color 0.3s ease;
 }
 
 .nav-list a:hover {
-    color: #00bcd4;
+    color: #2e8b57;
 }
 
-/* زر الوضع الليلي */
-#theme-btn {
-    background: #00bcd4;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: transform 0.4s;
-}
-
-#theme-btn:hover {
-    transform: rotate(180deg);
-}
-
+/* ---------------------- */
 /* قسم البطل */
 .hero {
     text-align: center;
-    padding: 150px 20px 80px;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #c8f7f4, #f0fff4);
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
 }
 
 .hero h2 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     margin-bottom: 15px;
+    color: #2e8b57;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    opacity: 0.8;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
 }
 
+#theme-btn {
+    background: #3cb371; /* أخضر جذاب */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#theme-btn:hover {
+    background: #2e8b57;
+}
+
+/* ---------------------- */
 /* المقالات */
 .articles {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
-    padding: 50px 20px;
 }
 
 .article {
     background: white;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 15px;
     text-align: center;
-    padding: 20px;
-    transform: translateY(40px);
-    opacity: 0;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-
-.article.visible {
-    transform: translateY(0);
-    opacity: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .article:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .section-image {
     width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.article h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #2e8b57;
+}
+
+.article p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 10px;
 }
 
 .read-more {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 15px;
-    background: #00bcd4;
-    color: white;
-    border-radius: 8px;
     text-decoration: none;
-    transition: background 0.3s;
+    color: #3cb371;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .read-more:hover {
-    background: #008c9e;
+    color: #2e8b57;
 }
 
+/* ---------------------- */
 /* زر الرجوع للأعلى */
 #back-to-top {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    background: #00bcd4;
+    background: #3cb371;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 12px 16px;
+    font-size: 18px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.2rem;
     display: none;
-    transition: transform 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
 }
 
 #back-to-top:hover {
-    transform: scale(1.2);
+    background: #2e8b57;
 }
 
-/* التذييل */
+/* ---------------------- */
+/* الفوتر */
 footer {
+    background: #f4f4f4;
     text-align: center;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.8);
-    margin-top: 30px;
+    margin-top: 40px;
     font-size: 0.9rem;
-}
-
-/* الوضع الليلي */
-.dark-mode {
-    background: linear-gradient(135deg, #1a1a1a, #222);
-    color: #f5f5f5;
-}
-
-.dark-mode .article {
-    background: #2b2b2b;
-    color: white;
-}
-
-.dark-mode header {
-    background: rgba(34, 34, 34, 0.9);
-}
-
-.dark-mode .read-more {
-    background: #008c9e;
+    color: #555;
+    border-top: 1px solid #ddd;
 }
