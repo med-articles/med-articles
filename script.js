@@ -1,4 +1,29 @@
-// ✅ تغيير شكل شريط التنسيق عند النزول
+// تغيير شريط التنسيق عند التمرير
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 50) {
+    navbar.style.background = 'rgba(255, 255, 255, 0.4)';
+    navbar.style.backdropFilter = 'blur(25px)';
+  } else {
+    navbar.style.background = 'rgba(255, 255, 255, 0.2)';
+    navbar.style.backdropFilter = 'blur(15px)';
+  }
+});
+
+// تأثير ظهور العناصر عند التمرير
+const elements = document.querySelectorAll('.fade-in');
+
+const fadeInOnScroll = () => {
+  elements.forEach(element => {
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      element.classList.add('visible');
+    }
+  });
+};
+
+window.addEventListener('scroll', fadeInOnScroll);
+fadeInOnScroll();// ✅ تغيير شكل شريط التنسيق عند النزول
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
