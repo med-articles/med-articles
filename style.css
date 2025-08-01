@@ -1,93 +1,93 @@
-/* إعدادات عامة */
-body {
+/* منع الزغد يمين ويسار */
+html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-family: 'Tajawal', sans-serif;
-    background-color: #f4f8fb;
+    font-family: 'Cairo', sans-serif;
+    background-color: #f5f7fa;
     color: #333;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 /* شريط التنسيق */
 header {
-    background: linear-gradient(90deg, #2c3e50, #3498db);
-    color: white;
-    padding: 15px 0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    z-index: 10;
 }
 
-.nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.navbar {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 40px;
 }
 
-.nav-list li a {
+.navbar a {
     text-decoration: none;
-    font-size: 18px;
-    color: white;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    color: #555;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.nav-list li a:hover {
-    color: #f1c40f;
+.navbar a:hover {
+    color: #1abc9c;
+    transform: translateY(-2px);
+}
+
+/* الأيقونات */
+.navbar a i {
+    font-size: 18px;
+    color: #1abc9c;
 }
 
 /* القسم التعريفي */
 .intro {
     text-align: center;
-    max-width: 800px;
-    margin: 60px auto 30px;
-    padding: 20px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
 }
 
-/* الأزرار */
-button {
-    background: linear-gradient(45deg, #27ae60, #2ecc71);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 15px;
+.intro h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 15px;
 }
 
-button:hover {
-    background: linear-gradient(45deg, #2ecc71, #27ae60);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.intro p {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: auto;
 }
 
 /* المقالات */
 .articles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     padding: 40px;
 }
 
 .article {
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .article:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 .article img {
@@ -96,29 +96,29 @@ button:hover {
     margin-bottom: 10px;
 }
 
-.article h3 a {
-    text-decoration: none;
-    color: #2980b9;
+.article h3 {
     font-size: 20px;
-    font-weight: 700;
-    transition: color 0.3s ease;
-}
-
-.article h3 a:hover {
-    color: #1abc9c;
+    color: #2c3e50;
+    margin-bottom: 8px;
 }
 
 .article p {
-    color: #666;
     font-size: 15px;
-    margin-top: 8px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.article a {
+    text-decoration: none;
+    color: #1abc9c;
+    font-weight: 600;
 }
 
 /* الفوتر */
 footer {
-    background-color: #2c3e50;
+    background: #2c3e50;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     margin-top: 40px;
 }
