@@ -1,75 +1,45 @@
-// تغيير شريط التنسيق عند التمرير
-window.addEventListener('scroll', () => {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
-    navbar.style.background = 'rgba(255, 255, 255, 0.4)';
-    navbar.style.backdropFilter = 'blur(25px)';
-  } else {
-    navbar.style.background = 'rgba(255, 255, 255, 0.2)';
-    navbar.style.backdropFilter = 'blur(15px)';
-  }
+// زر تغيير المظهر
+document.getElementById("theme-btn").addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
 });
 
-// تأثير ظهور العناصر عند التمرير
-const elements = document.querySelectorAll('.fade-in');
-
-const fadeInOnScroll = () => {
-  elements.forEach(element => {
-    const rect = element.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      element.classList.add('visible');
-    }
-  });
-};
-
-window.addEventListener('scroll', fadeInOnScroll);
-fadeInOnScroll();// ✅ تغيير شكل شريط التنسيق عند النزول
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(79, 172, 254, 0.9)';
-        navbar.style.backdropFilter = 'blur(10px)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.15)';
-        navbar.style.backdropFilter = 'blur(15px)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-    }
-});
-
-// ✅ زر العودة للأعلى
-const scrollBtn = document.createElement('button');
-scrollBtn.innerText = '⬆';
-scrollBtn.style.position = 'fixed';
-scrollBtn.style.bottom = '20px';
-scrollBtn.style.right = '20px';
-scrollBtn.style.background = '#4facfe';
-scrollBtn.style.color = 'white';
-scrollBtn.style.border = 'none';
-scrollBtn.style.padding = '10px 15px';
-scrollBtn.style.borderRadius = '50%';
-scrollBtn.style.fontSize = '18px';
-scrollBtn.style.cursor = 'pointer';
-scrollBtn.style.display = 'none';
-scrollBtn.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
-scrollBtn.style.zIndex = '999';
-document.body.appendChild(scrollBtn);
-
-window.addEventListener('scroll', () => {
-    scrollBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
-});
-
-scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// ✅ تأثير إضاءة متحركة على العناوين
-const glowingText = document.querySelectorAll('h1, h2');
-setInterval(() => {
-    glowingText.forEach(text => {
-        text.style.textShadow = `0 0 10px #4facfe, 0 0 20px #00f2fe`;
-        setTimeout(() => {
-            text.style.textShadow = `none`;
-        }, 500);
+// التمرير السلس عند الضغط على الروابط
+document.querySelectorAll('.nav-list a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            window.scrollTo({
+                top: targetSection.offsetTop - 60,
+                behavior: "smooth"
+            });
+        }
     });
-}, 1500);
+});
+
+// زر الرجوع للأعلى
+const backToTop = document.getElementById("back-to-top");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
+});
+
+backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// أنيميشن ظهور المقالات
+const articles = document.querySelectorAll(".article");
+window.addEventListener("scroll", () => {
+    const triggerBottom = window.innerHeight * 0.8;
+    articles.forEach(article => {
+        const boxTop = article.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+            article.classList.add("visible");
+        }
+    });
+});
