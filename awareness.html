@@ -60,8 +60,7 @@ font-size:55px;
 
 /* القوائم العادية */
 ul:not(.pin) li {
-  display: flex;
-  align-items: flex-start;     /* يوسّط النقطة مع النص */
+  position: relative;
   margin-bottom: 8px;
 gap:5px;
 list-style:none;
@@ -71,12 +70,13 @@ font-size:45px;
 ul:not(.pin) li::before {
   content: "⚫";
   color: #007BFF;
-  font-size: 0.5em;
+  font-size: 0.6em;
   margin-left: 6px;
 margin-top: 0.25em;
 line-height:1;
-position: relative;
-top:0.25em;
+position: absolute;
+right:0;
+top:0.2em;
 }
 
 /* القوائم بالدبابيس */
