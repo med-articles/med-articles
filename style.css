@@ -1,127 +1,111 @@
-/* الخط الأساسي */
+/* تنسيقات أساسية */
 body {
-    font-family: 'Tajawal', sans-serif;
-    background: linear-gradient(135deg, #f9fbfd, #eaf4ff);
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
     text-align: center;
     margin: 0;
     padding: 0;
-    line-height: 1.8;
-    color: #333;
+    transition: background-color 0.4s, color 0.4s;
 }
 
-/* الهيدر */
 header {
-    background: linear-gradient(90deg, #2c3e50, #1abc9c);
+    background-color: #2c3e50;
     color: white;
-    padding: 15px 0;
-    position: fixed;
+    padding: 20px;
     width: 100%;
-    top: 0;
-    left: 0;
-    transition: background 0.3s, box-shadow 0.3s;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* الهيدر ما يبقاش ثابت */
 }
 
-header.scrolled {
-    background: linear-gradient(90deg, #1a252f, #16a085);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* قائمة الروابط */
 .nav-list {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 20px 0;
     display: flex;
-    justify-content: center;
-    gap: 25px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .nav-list li a {
     text-decoration: none;
     font-size: 18px;
-    color: white;
-    font-weight: 500;
-    transition: color 0.3s, transform 0.2s;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 .nav-list li a:hover {
-    color: #f1c40f;
-    transform: scale(1.1);
+    color: #00b894;
 }
 
-/* المقدمة */
-.intro {
-    margin: 120px 20px 40px;
-    font-size: 18px;
-    color: #333;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* الأزرار */
+/* زر تغيير المظهر */
 button {
-    padding: 12px 28px;
-    background-color: #28a745;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #28a745, #20c997);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 15px;
+    margin: 20px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background-color: #218838;
-    transform: translateY(-3px);
+    background: linear-gradient(45deg, #20c997, #28a745);
+    transform: scale(1.1);
 }
 
-/* المقالات */
+/* تنسيق المقالات */
 .articles {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
-    padding: 30px 10px;
 }
 
 .article {
     background: white;
     padding: 15px;
-    width: 260px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center;
-}
-
-.article:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-}
-
-.article img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    margin: 15px;
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s, color 0.4s;
 }
 
 .article h3 a {
     text-decoration: none;
     color: #2980b9;
-    font-size: 20px;
-    font-weight: 700;
 }
 
 .article p {
     color: #555;
-    font-size: 15px;
-    margin: 10px 0 0;
+}
+
+/* الوضع الداكن */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.dark-mode header {
+    background-color: #111;
+}
+
+body.dark-mode .article {
+    background-color: #2c2c2c;
+    color: white;
+}
+
+body.dark-mode .article h3 a {
+    color: #4db8ff;
+}
+
+body.dark-mode button {
+    background: linear-gradient(45deg, #6c63ff, #007bff);
+}
+
+body.dark-mode button:hover {
+    background: linear-gradient(45deg, #007bff, #6c63ff);
 }
