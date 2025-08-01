@@ -1,127 +1,205 @@
-/* إعدادات عامة */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #f5f7fa, #e4ebf7);
-  color: #333;
-  line-height: 1.8;
-  text-align: center;
+    background-color: #f4f8fc;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* شريط التنسيق */
+/* شريط التنقل */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar h1 {
-  font-size: 24px;
-  color: #3c6e71;
+    font-size: 24px;
+    color: #4a90e2;
 }
 
 .nav-list ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+    list-style: none;
+    display: flex;
+    gap: 15px;
 }
 
-.nav-list ul li a {
-  text-decoration: none;
-  color: #444;
-  font-weight: bold;
-  transition: color 0.3s ease;
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-.nav-list ul li a:hover {
-  color: #0077ff;
+.nav-list a:hover {
+    color: #4a90e2;
 }
 
-/* محتوى الصفحة */
-.container {
-  padding-top: 100px;
-  max-width: 1200px;
-  margin: 0 auto;
+/* قسم البطل */
+.hero {
+    text-align: center;
+    padding: 120px 20px 60px;
+    background: linear-gradient(to right, #e0f7fa, #fce4ec);
+    border-bottom: 2px solid #ddd;
 }
 
-/* مربعات المقالات */
+.hero h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.hero button {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.hero button:hover {
+    background: #357ABD;
+}
+
+/* المقالات */
+.articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
 .article {
-  background: #fff;
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 800px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+.article.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .article img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .article h3 {
-  font-size: 20px;
-  color: #3c6e71;
-  margin-bottom: 10px;
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.article h3 a {
+    text-decoration: none;
+    color: #4a90e2;
 }
 
 .article p {
-  color: #555;
-  font-size: 16px;
-  margin-bottom: 10px;
+    color: #666;
+    margin-bottom: 10px;
 }
 
-.article a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #0077ff;
-  text-decoration: none;
-  font-weight: bold;
+.read-more {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
 }
 
-.article a:hover {
-  text-decoration: underline;
+.read-more:hover {
+    background: #357ABD;
 }
 
 /* زر الرجوع للأعلى */
-#backToTop {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #0077ff;
-  color: #fff;
-  border: none;
-  padding: 12px 15px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: none;
-  transition: background 0.3s;
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: none;
+    z-index: 1000;
 }
 
-#backToTop:hover {
-  background: #005bb5;
+#back-to-top:hover {
+    background: #357ABD;
+}
+
+/* التذييل */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-top: 1px solid #ddd;
+    color: #666;
+}
+
+/* الوضع الداكن */
+body.dark-mode {
+    background: #1c1c1c;
+    color: white;
+}
+
+body.dark-mode .navbar {
+    background: rgba(40, 40, 40, 0.9);
+    border-bottom: 1px solid #555;
+}
+
+body.dark-mode .nav-list a {
+    color: white;
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(to right, #333, #444);
+}
+
+body.dark-mode .article {
+    background: #2c2c2c;
+}
+
+body.dark-mode .read-more {
+    background: #777;
+}
+
+body.dark-mode footer {
+    background: rgba(40, 40, 40, 0.9);
+    color: #aaa;
 }
