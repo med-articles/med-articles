@@ -1,137 +1,124 @@
-/* تنسيقات أساسية */
+/* إعدادات عامة */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    text-align: center;
     margin: 0;
     padding: 0;
-    transition: background-color 0.4s, color 0.4s;
+    overflow-x: hidden;
+    font-family: 'Tajawal', sans-serif;
+    background-color: #f4f8fb;
+    color: #333;
+    line-height: 1.6;
 }
 
 /* شريط التنسيق */
 header {
-    background-color: #2c3e50; /* اللون الأصلي الجميل */
+    background: linear-gradient(90deg, #2c3e50, #3498db);
     color: white;
-    padding: 20px;
-    width: 100%;
-    position: relative; /* ما يبقاش ثابت */
+    padding: 15px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .nav-list {
     list-style: none;
+    margin: 0;
     padding: 0;
-    margin: 20px 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    justify-content: center;
+    gap: 25px;
 }
 
 .nav-list li a {
     text-decoration: none;
     font-size: 18px;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .nav-list li a:hover {
-    color: #00b894;
+    color: #f1c40f;
 }
 
-/* زر تغيير المظهر */
+/* القسم التعريفي */
+.intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 60px auto 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* الأزرار */
 button {
-    padding: 12px 25px;
-    background: linear-gradient(45deg, #28a745, #20c997);
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
     color: white;
     border: none;
-    border-radius: 25px;
+    padding: 12px 25px;
+    border-radius: 30px;
     font-size: 16px;
     cursor: pointer;
-    margin: 20px;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 15px;
 }
 
 button:hover {
-    background: linear-gradient(45deg, #20c997, #28a745);
-    transform: scale(1.1);
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* تنسيق المقالات */
+/* المقالات */
 .articles {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 40px;
 }
 
 .article {
     background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    margin: 15px;
-    width: 250px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.4s, color 0.4s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
-img {
-  width: 100%;
-  max-width: 300px; /* عدلي الحجم حسب واش تحبي */
-    height:300px;
-  border-radius: 10px; /* اختيارية، تعطي زوايا دائرية للصورة */
-  display: block;
-  margin: 10px auto; /* باش تجي في الوسط */
+
+.article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
 .article img {
     width: 100%;
-    border-radius: 8px;
-}
-.featured-img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-.section-image img {
-  width: 100%;
-  max-width: 800px;
-    height:300px;
-  border-radius: 12px;
-  display: block;
-  margin: 20px auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .article h3 a {
     text-decoration: none;
     color: #2980b9;
+    font-size: 20px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.article h3 a:hover {
+    color: #1abc9c;
 }
 
 .article p {
-    color: #555;
+    color: #666;
+    font-size: 15px;
+    margin-top: 8px;
 }
 
-/* الوضع الداكن */
-body.dark-mode {
-    background-color: #1e1e1e;
+/* الفوتر */
+footer {
+    background-color: #2c3e50;
     color: white;
-}
-
-body.dark-mode header {
-    background-color: #111;
-}
-
-body.dark-mode .article {
-    background-color: #2c2c2c;
-    color: white;
-}
-
-body.dark-mode .article h3 a {
-    color: #4db8ff;
-}
-
-body.dark-mode button {
-    background: linear-gradient(45deg, #6c63ff, #007bff);
-}
-
-body.dark-mode button:hover {
-    background: linear-gradient(45deg, #007bff, #6c63ff);
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
 }
