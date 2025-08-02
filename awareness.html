@@ -871,6 +871,12 @@ ul li:hover {
   </div>
   <p><a href="#top" id="top-btn">⬆ العودة إلى الأعلى</a></p>
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".article-img");
+    images.forEach(img => {
+      img.classList.add("show");
+    });
+  });
 window.onscroll = function() {
   const btn = document.getElementById("top-btn");
   if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
