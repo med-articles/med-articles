@@ -9,147 +9,148 @@
   <a href="index.html">العودة للرئيسية</a>
 
   <style>
-    /* الخطوط والخلفية العامة */
+/* إعدادات عامة */
 body {
-    font-family: "Cairo", sans-serif;
-    background: #f9fafb;
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.8;
     margin: 0;
     padding: 0;
-    color: #2c3e50;
-    line-height: 1.9;
+    background: #f9f9fb;
+    color: #333;
 }
 
-/* ✅ الهيدر */
-header {
-    background: linear-gradient(120deg, #0077b6, #00b4d8);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-header h1 {
-    font-size: 2.8em;
-    margin: 0;
-}
-
-header p {
-    font-size: 1.2em;
-    opacity: 0.9;
-}
-
-/* ✅ قائمة المقالات */
-.articles-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-    margin: 20px auto;
-}
-
-.articles-menu a {
-    text-decoration: none;
-    background: white;
-    color: #0077b6;
-    padding: 12px 25px;
-    border-radius: 30px;
+/* العناوين */
+h1, h2, h3 {
+    color: #222;
     font-weight: bold;
-    font-size: 16px;
-    transition: 0.3s;
-    border: 2px solid #0077b6;
+    margin-bottom: 10px;
 }
 
-.articles-menu a:hover {
-    background: #0077b6;
-    color: white;
-    transform: translateY(-3px);
+/* الروابط */
+a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
 }
 
-/* ✅ الحاوية */
-.container {
-    max-width: 950px;
-    margin: 30px auto;
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+a:hover {
+    color: #0056b3;
 }
 
-/* ✅ العناوين */
-h2 {
-    font-size: 2em;
-    text-align: center;
-    margin: 25px 0;
-    background: linear-gradient(90deg, #00b4d8, #0077b6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-h3 {
-    font-size: 1.5em;
-    margin: 20px 0 10px;
-    color: #0077b6;
-}
-
-/* ✅ النقاط */
-ul li {
-    font-size: 1.2em;
-    margin-bottom: 12px;
+/* القوائم */
+ul {
     list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+ul li {
     position: relative;
-    padding-right: 28px;
+    padding: 8px 10px 8px 30px;
+    margin-bottom: 6px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
 }
 
 ul li::before {
     content: "•";
-    font-size: 1.6em;
-    color: #00b4d8;
     position: absolute;
-    right: 0;
-    top: -2px;
+    left: 10px;
+    color: #007bff;
+    font-size: 18px;
 }
 
-/* ✅ الملاحظات تلقائياً */
-p:has(> strong:contains("ملاحظة")) {
-    background: #e6f4f9;
-    border-right: 5px solid #00b4d8;
+ul li:hover {
+    transform: translateX(-5px);
+}
+
+/* كروت المقالات */
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px;
+}
+
+.article-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     padding: 15px;
-    border-radius: 12px;
-    color: #004e64;
-    font-size: 1.1em;
-    margin: 20px 0;
-    position: relative;
+    transition: transform 0.3s ease;
 }
 
-p:has(> strong:contains("ملاحظة"))::before {
-    content: "📝 ملاحظة";
-    display: block;
-    font-weight: bold;
-    margin-bottom: 6px;
-    color: #0077b6;
+.article-card:hover {
+    transform: translateY(-5px);
 }
 
-/* ✅ الخلاصة تلقائياً */
-p:has(> strong:contains("الخلاصة")) {
-    background: #ecfdf5;
-    border-right: 5px solid #10b981;
+.article-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.article-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #222;
+}
+
+/* قسم الملاحظة */
+.note {
+    background: #fff7e6;
+    border-left: 5px solid #ff9800;
     padding: 15px;
-    border-radius: 12px;
-    color: #065f46;
-    font-size: 1.1em;
     margin: 20px 0;
-    position: relative;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-p:has(> strong:contains("الخلاصة"))::before {
-    content: "✅ الخلاصة";
-    display: block;
-    font-weight: bold;
-    margin-bottom: 6px;
-    color: #059669;
+.note h3 {
+    color: #e68900;
+    margin-bottom: 8px;
+}
+
+/* قسم الخلاصة */
+.summary {
+    background: #e8f7ff;
+    border-left: 5px solid #2196f3;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.summary h3 {
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+/* زر الرجوع للأعلى */
+#toTop {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: none;
+    z-index: 1000;
+}
+
+#toTop:hover {
+    transform: scale(1.15) rotate(5deg);
+    background: linear-gradient(135deg, #0056b3, #003d80);
 }
   </style>
 </head>
