@@ -10,100 +10,160 @@
 
   <style>
     body {
-      font-family: "Cairo", sans-serif;
-      background-color: #f8f9fa;
-      color: #212529;
-      line-height: 1.8;
-      margin: 20px;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .article-img {
-  width: 100%;
-height: auto; 
-  max-width: 800px;
-  border-radius: 8px;
-  margin: 20px auto;
-  display: block;
-    }
-    h1 {
-      color: #007BFF;
-      border-bottom: 2px solid #007BFF;
-      padding-bottom: 10px;
-      margin-bottom: 25px;
-    }
-    h2{
-      color:#28a745;
-      border-bottom: 0px solid #28a745;
-    }
-    h3{
-      color:#17a2b8;
-      border-bottom: 0px solid #17a2b8;
-    }
-p{
-position: relative;
-  display:flex;
-  align-items: flex-start;
-font-size:55px;
-}
-    ul {
-  list-style: none;
-  padding: 0;
-  margin:0;
+    font-family: "Cairo", sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+    color: #212529;
+    margin: 0;
+    padding: 0;
+    line-height: 1.9;
+    font-size: 18px;
 }
 
-/* القوائم العادية */
-ul:not(.pin) li {
-  display: flex;
-  align-items: flex-start;     /* يوسّط النقطة مع النص */
-  position: relative;
-  margin-bottom: 8px;
-gap:5px;
-list-style:none;
-font-size:45px;
+nav {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-radius: 0 0 12px 12px;
 }
 
-ul:not(.pin) li::before {
-  content: "⚫";
-  color: #007BFF;
-  font-size: 0.6em;
-  margin-left: 6px;
-margin-top: 0.25em;
-line-height:1;
-position: relative;
-top:0.2em;
+nav h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #007BFF;
+    margin-bottom: 10px;
 }
 
-/* القوائم بالدبابيس */
-ul.pin li {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 8px;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #007BFF;
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-ul.pin li::before {
-  content: "📌";
-  font-size: 2em;
-  margin-left: 6px;
-  color: #444;
-margin-top:0.25em;
+nav ul li a {
+    text-decoration: none;
+    background: #007BFF;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 16px;
 }
-    ul.pin li strong {
-  color: #444444;
-  font-size: 50px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: block;
-    }
+
+nav ul li a:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #007BFF;
+    font-size: 2.2em;
+    border-bottom: 3px solid #007BFF;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+h2 {
+    color: #28a745;
+    font-size: 1.8em;
+}
+
+h3 {
+    color: #17a2b8;
+    font-size: 1.5em;
+}
+
+.article-img {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+}
+
+.article-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ✅ النقاط ⚫ */
+ul li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+    position: relative;
+    padding-left: 25px;
+    list-style: none;
+}
+
+ul li::before {
+    content: "⚫";
+    position: absolute;
+    left: 0;
+    font-size: 0.6em; /* تصغير النقطة */
+    color: #007BFF;
+    top: 4px;
+}
+
+/* ✅ كود strong مع دبوس */
+strong {
+    position: relative;
+    font-weight: bold;
+    color: #d63384;
+    padding-left: 20px;
+}
+
+strong::before {
+    content: "📌";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.9em;
+}
+
+.note {
+    background: #e2f0d9;
+    border-right: 5px solid #28a745;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    line-height: 1.7;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 15px;
+    background: #007BFF;
+    color: white;
+    font-size: 1em;
+    border-radius: 12px 12px 0 0;
+}
     .note {
       background-color: #e2f0d9;
       border-right: 5px solid #28a745;
