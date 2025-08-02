@@ -17,19 +17,19 @@
     padding: 0;
     line-height: 1.9;
     font-size: 18px;
-    direction: rtl; /* اتجاه عربي */
+    direction: rtl;
     text-align: right;
 }
 
 /* ✅ شريط التنقل */
 nav {
     background: white;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 3px solid #007BFF;
+    border-bottom: 2px solid #007BFF;
 }
 
 nav h2 {
@@ -43,7 +43,7 @@ nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -53,11 +53,11 @@ nav ul li a {
     text-decoration: none;
     background: #007BFF;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 25px;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 15px;
     transition: 0.3s;
-    font-size: 16px;
 }
 
 nav ul li a:hover {
@@ -113,9 +113,9 @@ h3 {
     transform: scale(1.02);
 }
 
-/* ✅ النقاط على اليمين */
+/* ✅ النقاط */
 ul li {
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin-bottom: 10px;
     color: #333;
     position: relative;
@@ -124,20 +124,20 @@ ul li {
 }
 
 ul li::before {
-    content: "⚫";
+    content: "•";
     position: absolute;
     right: 0;
-    font-size: 0.6em;
+    font-size: 1.3em;
     color: #007BFF;
-    top: 4px;
+    top: -2px;
 }
 
 /* ✅ دبوس فقط لـ strong */
 strong {
     position: relative;
     font-weight: bold;
-    color: #d63384;
-    padding-right: 25px;
+    color: #007BFF;
+    padding-right: 28px;
 }
 
 strong::before {
@@ -146,21 +146,31 @@ strong::before {
     right: 0;
     top: 0;
     font-size: 0.9em;
+    color: #007BFF;
 }
 
-/* ✅ ملاحظات (Note) */
+/* ✅ ملاحظات */
 .note {
-    background: #eaf4ff;
-    border-right: 5px solid #007BFF;
+    background: #eef6ff;
+    border-right: 4px solid #007BFF;
     padding: 15px;
-    margin-top: 20px;
+    margin: 20px 0;
     border-radius: 8px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     line-height: 1.7;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
     color: #004085;
+    position: relative;
 }
 
+.note::before {
+    content: "📝 ملاحظة:";
+    font-weight: bold;
+    color: #007BFF;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ✅ تذييل */
 footer {
     text-align: center;
     margin-top: 40px;
