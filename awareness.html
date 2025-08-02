@@ -85,14 +85,21 @@ ul li:hover {
     transform: translateY(-5px);
 }
 
-/* تنسيق الصور داخل المقالات */
 .article-img {
-    width: 100%;
-    max-width: 600px; /* تكبير الصور */
-    display: block;
-    margin: 15px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 15px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.article-img.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 .article-card h3 {
     margin: 10px 0;
@@ -116,50 +123,26 @@ ul li:hover {
     margin-bottom: 8px;
 }
 #top {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: linear-gradient(135deg, #007bff, #00c6ff);
-    color: #fff;
-    border: none;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    font-size: 24px;
-    text-align: center;
-    line-height: 55px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    display: none;
-    z-index: 1000;
-    transition: all 0.3s ease-in-out;
-}
-
-#top::after {
-    content: "⬆";
-    font-size: 24px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 #top:hover {
-    transform: scale(1.2) rotate(10deg);
-    background: linear-gradient(135deg, #0056b3, #00a6e0);
-}
-
-/* تصميم الـ summary لجميع المقالات */
-summary {
-    font-size: 18px;
-    font-weight: bold;
-    background: #f8f9fa;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 10px 0;
-    color: #333;
-    transition: background 0.3s ease-in-out;
-}
-
-summary:hover {
-    background: #e2e6ea;
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0056b3, #00a6e0);
 }
 
   </style>
@@ -167,7 +150,7 @@ summary:hover {
 <body>
   <!-- روابط التنقل -->
 <nav id="#top">
-  <h2>📚 قائمة المقالات</h2>
+  <h2> قائمة المقالات</h2>
   <ul>
     <li><a href="#anemia">فقر الدم</a></li>
     <li><a href="#diabetes">داء السكري</a></li>
@@ -321,7 +304,7 @@ summary:hover {
 <p>🔹
 حافظو على صحتكم، واهتمو بجسمكم، لأنكم تستحقون حياة قوية وطاقة إيجابية دائمًا 💪🌸.</p>
   </div> 
-    <p><a href="#top">🔝 العودة إلى الأعلى</a></p>
+  <a href="#top" id="top">⬆ العودة إلى الأعلى</a>
   <hr>
    
  <div class="container">
@@ -476,7 +459,7 @@ summary:hover {
       <p>داء السكري مرض مزمن لكنه قابل للتحكم.
 الفهم الجيد للمرض + الالتزام بالعلاج + نمط حياة صحي = حياة طبيعية بدون مشاكل بإذن الله</p>
   </div>
-    <p><a href="#top">🔝 العودة إلى الأعلى</a></p>
+    <a href="#top" id="top">⬆ العودة إلى الأعلى</a>
    <hr>
    
  <div class="container">
@@ -626,7 +609,7 @@ summary:hover {
        <li> وبالعلاج الدوائي تحت إشراف الطبيب</li>
    </ul>   
  </div>
-    <p><a href="#top">🔝 العودة إلى الأعلى</a></p>
+    <a href="#top" id="top">⬆ العودة إلى الأعلى</a>
   <hr>
   <div class="container">
     <h1 id="asthma">🫁 الربو: أسبابه، أعراضه، وكيفية التعامل معه</h1>
@@ -728,7 +711,7 @@ summary:hover {
 مع العلاج المناسب، يمكن للمصاب أن يعيش حياة طبيعية ويزاول دراسته أو عمله دون مشاكل.
  السر في: الالتزام بالعلاج + تجنب المحفزات</p>
   </div>
-  <p><a href="#top">🔝 العودة إلى الأعلى</a></p>
+  <a href="#top" id="top">⬆ العودة إلى الأعلى</a>
   <hr>
   <div class="container">
 <h1 id="ibs">القولون العصبي (IBS): كل ما تحتاج معرفته</h1>
@@ -886,6 +869,14 @@ summary:hover {
       
     
   </div>
-  <p><a href="#top">🔝 العودة إلى الأعلى</a></p>
+  <a href="#top" id="top">⬆ العودة إلى الأعلى</a>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".article-img");
+    images.forEach(img => {
+      img.classList.add("show");
+    });
+  });
+</script>
 </body>
 </html>
