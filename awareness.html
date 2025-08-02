@@ -9,176 +9,147 @@
   <a href="index.html">العودة للرئيسية</a>
 
   <style>
-    body {
+    /* الخطوط والخلفية العامة */
+body {
     font-family: "Cairo", sans-serif;
-    background: #f9fbfd;
-    color: #212529;
+    background: #f9fafb;
     margin: 0;
     padding: 0;
+    color: #2c3e50;
     line-height: 1.9;
-    font-size: 18px;
-    direction: rtl;
-    text-align: right;
 }
 
-/* ✅ شريط التنقل */
-nav {
-    background: white;
-    padding: 15px 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+/* ✅ الهيدر */
+header {
+    background: linear-gradient(120deg, #0077b6, #00b4d8);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     position: sticky;
     top: 0;
-    z-index: 1000;
-    border-bottom: 2px solid #007BFF;
+    z-index: 10;
 }
 
-nav h2 {
-    text-align: center;
-    font-size: 2em;
-    color: #007BFF;
-    margin-bottom: 10px;
+header h1 {
+    font-size: 2.8em;
+    margin: 0;
 }
 
-nav ul {
+header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* ✅ قائمة المقالات */
+.articles-menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    gap: 14px;
+    margin: 20px auto;
 }
 
-nav ul li a {
+.articles-menu a {
     text-decoration: none;
-    background: #007BFF;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-weight: 500;
-    font-size: 15px;
+    background: white;
+    color: #0077b6;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
     transition: 0.3s;
+    border: 2px solid #0077b6;
 }
 
-nav ul li a:hover {
-    background: #0056b3;
-    transform: translateY(-2px);
+.articles-menu a:hover {
+    background: #0077b6;
+    color: white;
+    transform: translateY(-3px);
 }
 
 /* ✅ الحاوية */
 .container {
-    max-width: 900px;
-    margin: 40px auto;
+    max-width: 950px;
+    margin: 30px auto;
     background: white;
     padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* ✅ العناوين */
-h1, h2, h3 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-h1 {
-    color: #007BFF;
-    font-size: 2.2em;
-    border-bottom: 3px solid #007BFF;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
 h2 {
-    color: #28a745;
-    font-size: 1.8em;
+    font-size: 2em;
+    text-align: center;
+    margin: 25px 0;
+    background: linear-gradient(90deg, #00b4d8, #0077b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 h3 {
-    color: #17a2b8;
     font-size: 1.5em;
-}
-
-/* ✅ الصور */
-.article-img {
-    width: 100%;
-    max-width: 800px;
-    display: block;
-    margin: 20px auto;
-    border-radius: 12px;
-    transition: 0.3s ease-in-out;
-}
-
-.article-img:hover {
-    transform: scale(1.02);
+    margin: 20px 0 10px;
+    color: #0077b6;
 }
 
 /* ✅ النقاط */
 ul li {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    color: #333;
-    position: relative;
-    padding-right: 25px;
+    font-size: 1.2em;
+    margin-bottom: 12px;
     list-style: none;
+    position: relative;
+    padding-right: 28px;
 }
 
 ul li::before {
     content: "•";
+    font-size: 1.6em;
+    color: #00b4d8;
     position: absolute;
     right: 0;
-    font-size: 1.3em;
-    color: #007BFF;
     top: -2px;
 }
 
-/* ✅ دبوس فقط لـ strong */
-strong {
-    position: relative;
-    font-weight: bold;
-    color: #007BFF;
-    padding-right: 28px;
-}
-
-strong::before {
-    content: "📌";
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-size: 0.9em;
-    color: #007BFF;
-}
-
-/* ✅ ملاحظات */
-.note {
-    background: #eef6ff;
-    border-right: 4px solid #007BFF;
+/* ✅ الملاحظات تلقائياً */
+p:has(> strong:contains("ملاحظة")) {
+    background: #e6f4f9;
+    border-right: 5px solid #00b4d8;
     padding: 15px;
-    margin: 20px 0;
-    border-radius: 8px;
+    border-radius: 12px;
+    color: #004e64;
     font-size: 1.1em;
-    line-height: 1.7;
-    color: #004085;
+    margin: 20px 0;
     position: relative;
 }
 
-.note::before {
-    content: "📝 ملاحظة:";
-    font-weight: bold;
-    color: #007BFF;
+p:has(> strong:contains("ملاحظة"))::before {
+    content: "📝 ملاحظة";
     display: block;
-    margin-bottom: 10px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #0077b6;
 }
 
-/* ✅ تذييل */
-footer {
-    text-align: center;
-    margin-top: 40px;
+/* ✅ الخلاصة تلقائياً */
+p:has(> strong:contains("الخلاصة")) {
+    background: #ecfdf5;
+    border-right: 5px solid #10b981;
     padding: 15px;
-    background: #007BFF;
-    color: white;
-    font-size: 1em;
-    border-radius: 12px 12px 0 0;
+    border-radius: 12px;
+    color: #065f46;
+    font-size: 1.1em;
+    margin: 20px 0;
+    position: relative;
+}
+
+p:has(> strong:contains("الخلاصة"))::before {
+    content: "✅ الخلاصة";
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #059669;
 }
   </style>
 </head>
