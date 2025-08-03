@@ -41,6 +41,10 @@ ul {
     list-style: none;
     padding: 0;
     margin: 10px 0;
+direction: rtl;          /* اتجاه الكتابة لليمين */
+  text-align: right;       /* النصوص تكون على اليمين */
+  padding-right: 20px;     /* مسافة صغيرة من اليمين */
+  list-style-position: inside; /* النقاط تكون داخل النص */
 }
 
 ul li {
@@ -146,6 +150,13 @@ ul li:hover {
 #top-btn:hover {
   transform: scale(1.1);
   background: linear-gradient(135deg, #0056b3, #0096c7);
+}
+hr {
+  border: none;
+  height: 4px;
+  background: linear-gradient(135deg, #007bff, #00c6ff); /* نفس تدرّج الزر */
+  margin: 40px 0;       /* مسافة أكبر للفصل بين المقالات */
+  border-radius: 3px;   /* حواف ناعمة */
 }
 
   </style>
