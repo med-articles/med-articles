@@ -8,110 +8,151 @@
   <title>مقال طبي :الرياضة</title>
   <style>
     body {
-      font-family: "Cairo", sans-serif;
-      background-color: #f8f9fa;
-      color: #212529;
-      line-height: 1.8;
-      margin: 20px;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .article-img {
-  width: 100%;
-height:auto;
-  max-width: 800px;
-  border-radius: 8px;
-  margin: 20px auto;
+    font-family: 'tajawal', sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background: #f9f9fb;
+    color: #333;
+}
+
+/* العناوين */
+h1, h2, h3 {
+    color: #222;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* الروابط */
+a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* القوائم */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+direction:RTL;
+text-align: right;
+}
+
+
+ul li {
+    position: relative;
+    padding: 8px 10px 8px 30px;
+    margin-bottom: 6px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+ul li::before {
+    content: none;
+}
+
+ul li:hover {
+    transform:scale(1.02);
+}
+
+/* كروت المقالات */
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px;
+}
+
+.article-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-img {
   display: block;
-    }
-    h1 {
-      color: #007BFF;
-      border-bottom: 2px solid #007BFF;
-      padding-bottom: 10px;
-      margin-bottom: 25px;
-    }
-    h2{
-      color:#28a745;
-      border-bottom: 0px solid #28a745;
-    }
-    h3{
-      color:#17a2b8;
-      border-bottom: 0px solid #17a2b8;
-    }
-p{
-position: relative;
-  display:flex;
-  align-items: flex-start;
-font-size: 55px;
-}
-    ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-   ul li {
-  position: relative;
-  display:flex;
-  align-items: flex-start;
-  padding-right: 1.5em;
-  margin-bottom: 10px;
-  font-size: 45px;
-  color: #333;
-  line-height: 1.8;
-   }
-    ul:not(.pin) li {
-  display: flex;
-  align-items: flex-start;     /* يوسّط النقطة مع النص */
-  margin-bottom: 8px;
-gap:5px;
-list-style:none;
+  max-width: 100%;
+  height: auto;
+  margin: 15px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-ul:not(.pin) li::before {
-  content: "⚫";
-  color: #007BFF;
-  font-size: 0.7em;
-  margin-left: 6px;
-margin-top: 0.25em;
+.article-img.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.article-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #222;
 }
 
-/* القوائم بالدبابيس */
-ul.pin li {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 8px;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #007BFF;
+/* قسم الملاحظة */
+.note {
+    background: #fff7e6;
+    border-left: 5px solid #ff9800;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-ul.pin li::before {
-  content: "📌";
-  font-size: 2em;
-  margin-left: 6px;
-  color: #444;
-margin-top:0.25em;
+.note h3 {
+    color: #e68900;
+    margin-bottom: 8px;
 }
-    ul.pin li strong {
-  color: #444444;
-  font-size: 50px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: block;
-    }
-    .note {
-      background-color: #e2f0d9;
-      border-right: 5px solid #28a745;
-      padding: 10px;
-      margin-top: 20px;
-      border-radius: 5px;
-    }
+#top-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: #fff;
+  border: none;
+  font-size: 24px;       /* تكبير السهم */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 65px;           /* تكبير الزر */
+  height: 65px;
+  line-height: 65px;     /* محاذاة السهم وسط الزر */
+  text-align: center;
+  display: none;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+#top-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #0056b3, #0096c7);
+}
+hr {
+    border: none;
+    height: 4px;
+    background: linear-gradient(to right, #32cd32, #7CFC00); /* أخضر حامق */
+    margin: 40px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(50, 205, 50, 0.4);
+}
+
     
     </style>
 </head>
@@ -213,7 +254,7 @@ margin-top:0.25em;
      <p>▫️الرياضة ليست فقط وسيلة لفقدان الوزن، بل هي أسلوب حياة يحسن القلب، العظام، النفسية وحتى المناعة.
 خصص وقتًا بسيطًا يوميًا لنشاط بدني، وابدأ بخطوات صغيرة، لأن الاستمرارية هي المفتاح.</p>
  </div>
-     <p><a href="#top">🔝 العودة إلى الأعلى</a></p>
+    <p><a href="#top" id="top-btn">⬆ العودة إلى الأعلى</a></p>  
   <hr>
   <div class="container">
     <h1 id="daily-walking">🚶‍♀️ فوائد المشي اليومي لمدة 30 دقيقة</h1>
@@ -292,7 +333,7 @@ margin-top:0.25em;
       <p>▫️المشي اليومي هو علاج مجاني، بلا آثار جانبية، ومتوفّر للجميع.
 خصّص فقط 30 دقيقة من يومك، وستلاحظين تحسنًا كبيرًا في صحتك الجسدية والنفسية.</p>
   </div>
-  <p><a href="#top">🔝 العودة إلى الأعلى</a></p>
+  <p><a href="#top" id="top-btn">⬆ العودة إلى الأعلى</a></p>
   <hr>
   <div class="container">
     <h1 id="sport-heart">🫀 الرياضة والقلب: كيف تحافظ التمارين على صحة القلب والدورة الدموية؟
@@ -356,7 +397,7 @@ margin-top:0.25em;
     <p>▫️الرياضة هي دواء مجاني، بدون آثار جانبية، يقي القلب من الأمراض ويحسن من جودة حياتك.
 اجعلها جزءًا من يومك</p>
   </div>
-  <p><a href="#top">🔝 العودة إلى الأعلى</a></p>
+   <p><a href="#top" id="top-btn">⬆ العودة إلى الأعلى</a></p>
   <hr>
   <div class="container">
     <h1 id="yoga">🧘‍♀️اليوغا: رياضة العقل والجسد وأسلوب للحياة
@@ -425,7 +466,7 @@ margin-top:0.25em;
     <p>▫️اليوغا ليست رياضة عادية، بل وسيلة فعالة لتنظيم الجسد والعقل معًا.
  في عالم مليء بالتوتر، اليوغا هي الاستراحة التي يحتاجها قلبك وعقلك.</p>
   </div>
-  <p><a href="#top">🔝 العودة إلى الأعلى</a></p>
+   <p><a href="#top" id="top-btn">⬆ العودة إلى الأعلى</a></p>
   <hr>
   <div class="container">
     <h1 id="bones-exercise">🏋️ دور التمارين الرياضية في تقوية العظام لدى المراهقين والنساء</h1>
@@ -511,6 +552,22 @@ margin-top:0.25em;
     <p>▫️مزيج من التمارين، الغذاء الجيد، والتشخيص المبكر يضمن لكِ عظامًا قوية وصحية مدى الحياة.
  لا تنتظري حتى يُصاب العظم بالهشاشة. ابدئي من اليوم!</p>
   </div>
-  <p><a href="#top">🔝 العودة إلى الأعلى</a></p>
+    <p><a href="#top" id="top-btn">⬆ العودة إلى الأعلى</a></p>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".article-img");
+    images.forEach(img => {
+      img.classList.add("show");
+    });
+  });
+window.onscroll = function() {
+  const btn = document.getElementById("top-btn");
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+</script>
 </body>
 </html>
