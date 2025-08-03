@@ -41,11 +41,7 @@ ul {
     list-style: none;
     padding: 0;
     margin: 10px 0;
-direction: rtl;          /* اتجاه الكتابة لليمين */
-  text-align: right;       /* النصوص تكون على اليمين */
-  padding-right: 20px;     /* مسافة صغيرة من اليمين */
-  list-style-position: inside; /* النقاط تكون داخل النص */
-}
+
 
 ul li {
     position: relative;
@@ -60,7 +56,8 @@ ul li {
 ul li::before {
     content: "•";
     position: absolute;
-    left: 10px;
+right:10px;
+top:50%;
     color: #007bff;
     font-size: 18px;
 }
