@@ -3,7 +3,7 @@
 
   <!-- الصفحة الرئيسية -->
   <url>
-    <loc>https://med-articles.github.io/med-articles/</loc>
+    <loc>https://med-articles.github.io/med-articles</loc>
     <priority>1.0</priority>
   </url>
 
@@ -12,26 +12,23 @@
     <loc>https://med-articles.github.io/med-articles/fitness.html</loc>
     <priority>0.9</priority>
   </url>
-  
+
   <!-- قسم الصحة النفسية -->
   <url>
     <loc>https://med-articles.github.io/med-articles/mental.html</loc>
     <priority>0.9</priority>
   </url>
-  
 
   <!-- قسم التوعية الصحية -->
   <url>
     <loc>https://med-articles.github.io/med-articles/awareness.html</loc>
     <priority>0.9</priority>
   </url>
-  
 
   <!-- قسم التغذية الصحية -->
   <url>
     <loc>https://med-articles.github.io/med-articles/nutrition.html</loc>
     <priority>0.9</priority>
   </url>
-  
 
 </urlset>
