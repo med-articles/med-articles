@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://med-articles.github.io/med-articles/sitemap.xml
