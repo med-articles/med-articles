@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>الاسعافات الأولية </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+  <a href="index.html">العودة للرئيسية</a>
+
+  <style>
+body {
+    font-family: 'tajawal', sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background: #f9f9fb;
+    color: #333;
+}
+
+/* العناوين */
+h1, h2, h3 {
+    color: #222;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* الروابط */
+a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* القوائم */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+direction:RTL;
+text-align: right;
+}
+
+
+ul li {
+    position: relative;
+    padding: 8px 10px 8px 30px;
+    margin-bottom: 6px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+ul li::before {
+    content: none;
+}
+
+ul li:hover {
+    transform:scale(1.02);
+}
+
+/* كروت المقالات */
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px;
+}
+
+.article-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 15px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.article-img.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.article-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #222;
+}
+
+/* قسم الملاحظة */
+.note {
+    background: #fff7e6;
+    border-left: 5px solid #ff9800;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.note h3 {
+    color: #e68900;
+    margin-bottom: 8px;
+}
+#top-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: #fff;
+  border: none;
+  font-size: 24px;       /* تكبير السهم */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 65px;           /* تكبير الزر */
+  height: 65px;
+  line-height: 65px;     /* محاذاة السهم وسط الزر */
+  text-align: center;
+  display: none;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+#top-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #0056b3, #0096c7);
+}
+hr {
+    border: none;
+    height: 4px;
+    background: linear-gradient(to right, #32cd32, #7CFC00); /* أخضر حامق */
+    margin: 40px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(50, 205, 50, 0.4);
+}
+
+
+
+
+  </style>
+</head>
+<body>
+  <!-- روابط التنقل -->
+<nav id="top">
+  <h2> قائمة المقالات</h2>
+  <ul>
